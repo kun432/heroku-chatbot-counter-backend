@@ -3,6 +3,8 @@ const session = require('express-session')
 const morgan = require('morgan');
 const app = express()
 
+const FRONTEND_URL = process.env.FRONTEND_URL; 
+
 const sess = {
   secret: 'secret_key',
   resave: false,
@@ -14,12 +16,12 @@ const sess = {
     httpOnly: true,
   }
 }
-
 app.set('port', (process.env.PORT || 3000));
+app.use(morgan('combined'));
 app.set('trust proxy', 1) // trust first proxy
 app.use(session(sess))
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://vf-web-chatbot-demo.netlify.app');
+  res.header('Access-Control-Allow-Origin', `${FRONTEND_URL}`);
   res.header('Access-Control-Allow-Method', 'GET, POST, HEAD, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
   res.header('Access-Control-Allow-Credentials', true);

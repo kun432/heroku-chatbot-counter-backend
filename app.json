@@ -1,0 +1,17 @@
+{
+  "name": "heroku-chatbot-counter-backend",
+  "description": "webチャットボットのデモ",
+  "keywords": [
+    "chatbot",
+    "chat",
+    "web"
+  ],
+  "repository": "https://github.com/kun432/heroku-chatbot-counter-backend",
+  "env": {
+    "FRONTEND_URL": {
+      "description": "HTTPS-enabled frontend URL which hosts chatux clients.",
+      "value": ""
+    }
+  }
+}
+
