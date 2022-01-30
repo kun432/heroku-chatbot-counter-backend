@@ -43,4 +43,4 @@ app.post('/chat', (req, res) => {
   res.json(response);
 })
 
-app.listen(app.get('port'), () => console.log('listening on port ' +  app.get('port'));
+app.listen(app.get('port'), () => console.log('listening on port ' +  app.get('port')));
