@@ -15,6 +15,7 @@ const sess = {
   }
 }
 
+app.set('port', (process.env.PORT || 3000));
 app.set('trust proxy', 1) // trust first proxy
 app.use(session(sess))
 app.use(function (req, res, next) {
@@ -42,4 +43,4 @@ app.post('/chat', (req, res) => {
   res.json(response);
 })
 
-app.listen(3000, () => console.log('listening on port 3000!'))
+app.listen(app.get('port'), () => console.log('listening on port ' +  app.get('port'));
