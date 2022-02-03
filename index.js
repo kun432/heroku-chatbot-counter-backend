@@ -29,7 +29,7 @@ app.use(function (req, res, next) {
 });
 app.post('/chat', (req, res) => {
   console.log(`sessionID: ${req.sessionID}, maxAge: ${req.session.cookie.maxAge}, counter: ${req.session.counter}`)
-
+  console.log(JSON.stringify(req.body, null, 2));
   const response = {output: []};
   const msg = response.output;
 
