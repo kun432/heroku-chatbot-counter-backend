@@ -29,7 +29,7 @@ app.use(function (req, res, next) {
 });
 app.post('/chat', (req, res) => {
   console.log(`sessionID: ${req.sessionID}, maxAge: ${req.session.cookie.maxAge}, counter: ${req.session.counter}`)
-  console.log(JSON.stringify(req.body, null, 2));
+  console.log(JSON.stringify(req.body));
   const response = {output: []};
   const msg = response.output;
 
@@ -40,6 +40,11 @@ app.post('/chat', (req, res) => {
   msg.push({
     type: 'text',
     value: message
+  });
+  msg.push({
+    type: 'youtube',
+    value: 'VIyE2K33w-w',
+    delayMs: 500 // wait(milliseconds)
   });
 
   res.json(response);
